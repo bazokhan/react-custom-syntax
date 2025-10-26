@@ -100,7 +100,7 @@ export function Legal() {
           <ul style={{ color: "#858585", paddingLeft: "1.5rem" }}>
             <li>
               <a
-                href="https://github.com/your-org/react-custom-syntax"
+                href="https://github.com/bazokhan/react-custom-syntax"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ color: "#4ec9b0", textDecoration: "none" }}
@@ -222,7 +222,7 @@ export function Legal() {
           <ul style={{ color: "#858585", paddingLeft: "1.5rem" }}>
             <li>
               <a
-                href="https://github.com/your-org/react-custom-syntax/issues"
+                href="https://github.com/bazokhan/react-custom-syntax/issues"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ color: "#4ec9b0", textDecoration: "none" }}

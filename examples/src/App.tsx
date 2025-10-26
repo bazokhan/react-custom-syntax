@@ -184,7 +184,7 @@ function App() {
         }}
       >
         <a
-          href="https://github.com/your-org/react-custom-syntax"
+          href="https://github.com/bazokhan/react-custom-syntax"
           target="_blank"
           rel="noopener noreferrer"
           style={{ color: '#4ec9b0', textDecoration: 'none' }}
