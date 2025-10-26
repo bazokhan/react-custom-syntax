@@ -1,0 +1,6 @@
+# This file ensures examples are not included when publishing the package
+node_modules/
+*.log
+dist/
+.env*
+

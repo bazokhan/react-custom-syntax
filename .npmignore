@@ -1,0 +1,38 @@
+# Source files
+src/
+*.ts
+*.tsx
+!dist/**/*.d.ts
+
+# Tests
+**/*.test.*
+**/__tests__/
+coverage/
+.nyc_output/
+
+# Config files
+tsconfig.json
+vite.config.ts
+vitest.config.ts
+.eslintrc.*
+.prettierrc.*
+
+# Dev files
+.git/
+.gitignore
+.vscode/
+.idea/
+*.log
+node_modules/
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+
+# Examples and docs (optional, keep README)
+examples/
+docs/
+*.md
+!README.md
+!CHANGELOG.md
+

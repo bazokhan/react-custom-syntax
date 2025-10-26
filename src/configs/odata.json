@@ -1,0 +1,352 @@
+{
+  "version": "2.0.0",
+  "description": "OData syntax tokens and keywords configuration for syntax highlighting",
+  "reference": "https://azuresearch.github.io/odata-syntax-diagram",
+  "highlightingRules": [
+    {
+      "name": "StringLiterals",
+      "matchType": "regex",
+      "pattern": "(?<!<[^>]*)(?<!=)(?<!\\*/)'([^']*)'(?![^<]*>)",
+      "type": "StringLiteral"
+    },
+    {
+      "name": "ISODates",
+      "matchType": "regex",
+      "pattern": "(?<!\\*/)\\b(\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}Z)\\b",
+      "type": "DateLiteral"
+    },
+    {
+      "name": "Numbers",
+      "matchType": "regex",
+      "pattern": "(?<!\\d)(?<!:)(?<!-)(?<!\\*/)\\b(\\d+\\.?\\d*)\\b(?![-T:\\d])",
+      "type": "NumberLiteral"
+    },
+    {
+      "name": "Comments",
+      "matchType": "regex",
+      "pattern": "/\\*[\\s\\S]*?\\*/",
+      "type": "Comment"
+    },
+    {
+      "name": "KeywordTokens",
+      "matchType": "keyword",
+      "caseSensitive": false,
+      "addWordBoundaries": true,
+      "tokens": [
+        {
+          "keyword": "and",
+          "type": "LogicalOperator",
+          "description": "Logical AND operator"
+        },
+        {
+          "keyword": "or",
+          "type": "LogicalOperator",
+          "description": "Logical OR operator"
+        },
+        {
+          "keyword": "not",
+          "type": "LogicalOperator",
+          "description": "Logical NOT operator"
+        },
+        {
+          "keyword": "eq",
+          "type": "ComparisonOperator",
+          "description": "Equal to operator"
+        },
+        {
+          "keyword": "ne",
+          "type": "ComparisonOperator",
+          "description": "Not equal to operator"
+        },
+        {
+          "keyword": "gt",
+          "type": "ComparisonOperator",
+          "description": "Greater than operator"
+        },
+        {
+          "keyword": "ge",
+          "type": "ComparisonOperator",
+          "description": "Greater than or equal to operator"
+        },
+        {
+          "keyword": "lt",
+          "type": "ComparisonOperator",
+          "description": "Less than operator"
+        },
+        {
+          "keyword": "le",
+          "type": "ComparisonOperator",
+          "description": "Less than or equal to operator"
+        },
+        {
+          "keyword": "add",
+          "type": "ArithmeticOperator",
+          "description": "Addition operator"
+        },
+        {
+          "keyword": "sub",
+          "type": "ArithmeticOperator",
+          "description": "Subtraction operator"
+        },
+        {
+          "keyword": "mul",
+          "type": "ArithmeticOperator",
+          "description": "Multiplication operator"
+        },
+        {
+          "keyword": "div",
+          "type": "ArithmeticOperator",
+          "description": "Division operator"
+        },
+        {
+          "keyword": "mod",
+          "type": "ArithmeticOperator",
+          "description": "Modulus operator"
+        },
+        {
+          "keyword": "any",
+          "type": "CollectionOperator",
+          "description": "Any operator"
+        },
+        {
+          "keyword": "all",
+          "type": "CollectionOperator",
+          "description": "All operator"
+        },
+        {
+          "keyword": "in",
+          "type": "OtherOperator",
+          "description": "In operator"
+        },
+        {
+          "keyword": "has",
+          "type": "OtherOperator",
+          "description": "Has operator"
+        },
+        {
+          "keyword": "contains",
+          "type": "StringFunction",
+          "description": "Checks if a string contains a substring"
+        },
+        {
+          "keyword": "endswith",
+          "type": "StringFunction",
+          "description": "Checks if a string ends with a substring"
+        },
+        {
+          "keyword": "startswith",
+          "type": "StringFunction",
+          "description": "Checks if a string starts with a substring"
+        },
+        {
+          "keyword": "length",
+          "type": "StringFunction",
+          "description": "Returns the length of a string"
+        },
+        {
+          "keyword": "indexof",
+          "type": "StringFunction",
+          "description": "Returns the index of a substring in a string"
+        },
+        {
+          "keyword": "substring",
+          "type": "StringFunction",
+          "description": "Returns a substring of a string"
+        },
+        {
+          "keyword": "tolower",
+          "type": "StringFunction",
+          "description": "Converts string to lowercase"
+        },
+        {
+          "keyword": "toupper",
+          "type": "StringFunction",
+          "description": "Converts string to uppercase"
+        },
+        {
+          "keyword": "trim",
+          "type": "StringFunction",
+          "description": "Removes leading and trailing whitespace"
+        },
+        {
+          "keyword": "concat",
+          "type": "StringFunction",
+          "description": "Concatenates strings"
+        },
+        {
+          "keyword": "year",
+          "type": "DateFunction",
+          "description": "Returns the year component of a date or time value"
+        },
+        {
+          "keyword": "month",
+          "type": "DateFunction",
+          "description": "Returns the month component of a date or time value"
+        },
+        {
+          "keyword": "day",
+          "type": "DateFunction",
+          "description": "Returns the day component of a date or time value"
+        },
+        {
+          "keyword": "hour",
+          "type": "DateFunction",
+          "description": "Returns the hour component of a date or time value"
+        },
+        {
+          "keyword": "minute",
+          "type": "DateFunction",
+          "description": "Returns the minute component of a date or time value"
+        },
+        {
+          "keyword": "second",
+          "type": "DateFunction",
+          "description": "Returns the second component of a date or time value"
+        },
+        {
+          "keyword": "date",
+          "type": "DateFunction",
+          "description": "Returns the date component of a date or time value"
+        },
+        {
+          "keyword": "time",
+          "type": "DateFunction",
+          "description": "Returns the time component of a date or time value"
+        },
+        {
+          "keyword": "now",
+          "type": "DateFunction",
+          "description": "Returns the current date and time"
+        },
+        {
+          "keyword": "true",
+          "type": "BooleanLiteral",
+          "description": "True literal"
+        },
+        {
+          "keyword": "false",
+          "type": "BooleanLiteral",
+          "description": "False literal"
+        },
+        {
+          "keyword": "null",
+          "type": "BooleanLiteral",
+          "description": "Null literal"
+        },
+        {
+          "keyword": "@this_month",
+          "type": "CustomToken",
+          "description": "This month"
+        },
+        {
+          "keyword": "@this_week",
+          "type": "CustomToken",
+          "description": "This week"
+        },
+        { "keyword": "@today", "type": "CustomToken", "description": "Today" },
+        {
+          "keyword": "@yesterday",
+          "type": "CustomToken",
+          "description": "Yesterday"
+        },
+        {
+          "keyword": "CurrentUserId",
+          "type": "CustomToken",
+          "description": "Current user ID"
+        }
+      ]
+    }
+  ],
+  "types": [
+    {
+      "className": "Comment",
+      "highlightColor": "#6a737d",
+      "parentType": "Comment",
+      "fontWeight": "normal",
+      "fontStyle": "italic"
+    },
+    {
+      "className": "StringLiteral",
+      "highlightColor": "#ce9178",
+      "parentType": "Literal",
+      "fontWeight": "normal"
+    },
+    {
+      "className": "NumberLiteral",
+      "highlightColor": "#b5cea8",
+      "parentType": "Literal",
+      "fontWeight": "normal"
+    },
+    {
+      "className": "DateLiteral",
+      "highlightColor": "#4ec9b0",
+      "parentType": "Literal",
+      "fontWeight": "normal"
+    },
+    {
+      "className": "BooleanLiteral",
+      "highlightColor": "#569cd6",
+      "parentType": "Literal",
+      "fontWeight": "600"
+    },
+    {
+      "className": "LogicalOperator",
+      "highlightColor": "#569cd6",
+      "parentType": "Operator",
+      "fontWeight": "600"
+    },
+    {
+      "className": "ComparisonOperator",
+      "highlightColor": "#569cd6",
+      "parentType": "Operator",
+      "fontWeight": "600"
+    },
+    {
+      "className": "ArithmeticOperator",
+      "highlightColor": "#569cd6",
+      "parentType": "Operator",
+      "fontWeight": "600"
+    },
+    {
+      "className": "CollectionOperator",
+      "highlightColor": "#569cd6",
+      "parentType": "Operator",
+      "fontWeight": "600"
+    },
+    {
+      "className": "OtherOperator",
+      "highlightColor": "#569cd6",
+      "parentType": "Operator",
+      "fontWeight": "600"
+    },
+    {
+      "className": "StringFunction",
+      "highlightColor": "#dcdcaa",
+      "parentType": "Function",
+      "fontWeight": "500"
+    },
+    {
+      "className": "DateFunction",
+      "highlightColor": "#dcdcaa",
+      "parentType": "Function",
+      "fontWeight": "500"
+    },
+    {
+      "className": "CustomToken",
+      "highlightColor": "#c586c0",
+      "parentType": "Custom",
+      "fontWeight": "600"
+    }
+  ],
+  "metadata": {
+    "lastUpdated": "2024-01-01",
+    "maintainer": "react-custom-syntax",
+    "extensible": true,
+    "notes": [
+      "highlightingRules define how tokens are matched and highlighted",
+      "matchType 'keyword' applies word boundaries and case sensitivity rules",
+      "matchType 'regex' uses direct regex patterns for complex matching",
+      "The order of rules matters - earlier rules are applied first"
+    ]
+  }
+}
