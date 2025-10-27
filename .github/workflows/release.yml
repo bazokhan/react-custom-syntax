@@ -57,7 +57,7 @@ jobs:
 
       - name: Build the package
         id: packageBuild
-        run: npm build
+        run: npm run build
 
       - name: Zip artifact for deployment
         run: cd ./dist/ && zip ../react-custom-syntax-dist.zip . -r
