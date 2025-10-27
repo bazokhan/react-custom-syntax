@@ -1,5 +1,9 @@
 # react-custom-syntax
 
+> ⚠️ **Warning: This library is in active development and is NOT ready for production use.** This project is subject to breaking changes and may undergo significant modifications. Please review the [CHANGELOG.md](./CHANGELOG.md) for the latest updates and breaking changes. Use at your own risk.
+
+📖 **Live Documentation & Interactive Playground:** Explore the full interactive documentation with live examples at [**react-custom-syntax.trugraph.io**](https://react-custom-syntax.trugraph.io/) or [**react-custom-syntax.vercel.app**](https://react-custom-syntax.vercel.app/)
+
 A lightweight, customizable React syntax editor with rule-based highlighting, prettification, and plugin support. Define any custom language syntax using JSON configuration.
 
 [![npm version](https://img.shields.io/npm/v/react-custom-syntax.svg)](https://www.npmjs.com/package/react-custom-syntax)
@@ -385,7 +389,7 @@ Check out the [examples directory](./examples) for a showcase app with multiple 
 npm run build
 
 # Navigate to examples
-cd examples
+cd docs
 
 # Install dependencies
 npm install
@@ -395,9 +399,9 @@ npm run dev
 ```
 
 The showcase includes:
-- **[Basic OData Editor](./examples/basic-odata-editor/)** - Simple setup with default OData syntax
-- **[Empty Config](./examples/empty-config/)** - Plain text editor without highlighting
-- **[Custom Simple Syntax](./examples/custom-simple-syntax/)** - Custom language with 2 keywords
+- **[Basic OData Editor](./docs/basic-odata-editor/)** - Simple setup with default OData syntax
+- **[Empty Config](./docs/empty-config/)** - Plain text editor without highlighting
+- **[Custom Simple Syntax](./docs/custom-simple-syntax/)** - Custom language with 2 keywords
 
 ### OData Query Editor
 

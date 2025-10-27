@@ -13,7 +13,7 @@ interface NotificationHandler {
  * Default notification handler (console-based)
  */
 const defaultNotificationHandler: NotificationHandler = {
-  success: (message: string) => console.log(`✓ ${message}`),
+  success: (message: string) => console.warn(`✓ ${message}`),
   warning: (message: string) => console.warn(`⚠ ${message}`),
   error: (message: string) => console.error(`✗ ${message}`),
 };

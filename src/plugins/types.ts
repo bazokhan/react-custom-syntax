@@ -45,14 +45,14 @@ export interface Plugin {
    * @param event Event name
    * @param callback Callback function
    */
-  on?: (event: string, callback: (...args: any[]) => void) => void;
+  on?: (event: string, callback: (...args: unknown[]) => void) => void;
   
   /**
    * Event emitter (optional)
    * @param event Event name
    * @param args Event arguments
    */
-  emit?: (event: string, ...args: any[]) => void;
+  emit?: (event: string, ...args: unknown[]) => void;
 }
 
 /**

@@ -18,7 +18,7 @@ npm run build
 
 echo ""
 echo "📂 Navigating to example: $EXAMPLE_NAME"
-cd "examples/$EXAMPLE_NAME"
+cd "docs/$EXAMPLE_NAME"
 
 echo ""
 echo "📥 Installing dependencies..."
