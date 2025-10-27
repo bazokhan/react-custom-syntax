@@ -32,36 +32,39 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v5
-      
+
       - name: Set up Node
         uses: actions/setup-node@v5
         with:
           node-version: lts/*
           cache: 'npm'
-      
+
       - name: Install root dependencies
         run: npm ci
-      
+
       - name: Build library
         run: npm run build
-      
+
       - name: Install docs dependencies
         working-directory: docs
         run: npm ci
-      
+
       - name: Build docs
         working-directory: docs
         run: npm run build
-      
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
-      
+
+      - name: Add CNAME
+        run: echo "react-custom-syntax.trugraph.io" > docs/dist/CNAME
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
         with:
           # Upload dist folder from docs
           path: './docs/dist'
-      
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
