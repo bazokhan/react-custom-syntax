@@ -8,6 +8,16 @@ A lightweight, customizable React syntax editor with rule-based highlighting, pr
 
 [![npm version](https://img.shields.io/npm/v/react-custom-syntax.svg)](https://www.npmjs.com/package/react-custom-syntax)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![GitHub stars](https://img.shields.io/github/stars/bazokhan/react-custom-syntax)](https://github.com/bazokhan/react-custom-syntax/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/bazokhan/react-custom-syntax)](https://github.com/bazokhan/react-custom-syntax/network)
+[![GitHub issues](https://img.shields.io/github/issues/bazokhan/react-custom-syntax)](https://github.com/bazokhan/react-custom-syntax/issues)
+[![GitHub Release Date](https://img.shields.io/github/release-date/bazokhan/react-custom-syntax)](https://github.com/bazokhan/react-custom-syntax/releases)
+[![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/bazokhan/react-custom-syntax)](https://github.com/bazokhan/react-custom-syntax)
+[![Release Code Quality](https://github.com/bazokhan/react-custom-syntax/actions/workflows/release.yml/badge.svg)](https://github.com/bazokhan/react-custom-syntax/actions/workflows/release.yml)
+[![Beta Code Quality](https://github.com/bazokhan/react-custom-syntax/actions/workflows/release.yml/badge.svg?branch=staging)](https://github.com/bazokhan/react-custom-syntax/actions/workflows/release.yml)
+
+A lightweight, customizable React syntax editor with rule-based highlighting, prettification, and plugin support. Define
+any custom language syntax using JSON configuration.
 
 ## Features
 
@@ -33,16 +43,16 @@ pnpm add react-custom-syntax
 ## Quick Start
 
 ```tsx
-import { useState } from 'react';
-import { CustomSyntaxEditor, ConfigManager, odataConfig } from 'react-custom-syntax';
+import { useState } from 'react'
+import { CustomSyntaxEditor, ConfigManager, odataConfig } from 'react-custom-syntax'
 
 function App() {
-  const [value, setValue] = useState('');
-  const configManager = new ConfigManager(odataConfig);
+  const [value, setValue] = useState('')
+  const configManager = new ConfigManager(odataConfig)
 
-  const handleChange = (e) => {
-    setValue(e.target.value);
-  };
+  const handleChange = e => {
+    setValue(e.target.value)
+  }
 
   return (
     <CustomSyntaxEditor
@@ -51,11 +61,12 @@ function App() {
       configManager={configManager}
       headerLabel="OData Query Editor"
     />
-  );
+  )
 }
 ```
 
-> **Note**: Styles are automatically included via CSS modules. No separate import required. CSS variables are available for theming customization.
+> **Note**: Styles are automatically included via CSS modules. No separate import required. CSS variables are available
+> for theming customization.
 
 ## Custom Language Configuration
 
@@ -112,97 +123,93 @@ Define your own syntax by creating a JSON configuration:
 Then use it:
 
 ```tsx
-import customConfig from './customSyntax.json';
+import customConfig from './customSyntax.json'
 
-const configManager = new ConfigManager(customConfig);
+const configManager = new ConfigManager(customConfig)
 
-<CustomSyntaxEditor
-  value={value}
-  onChange={handleChange}
-  configManager={configManager}
-/>
+;<CustomSyntaxEditor value={value} onChange={handleChange} configManager={configManager} />
 ```
 
 ## API Reference
 
 ### CustomSyntaxEditor Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `value` | `string` | Required | Current editor value |
-| `onChange` | `(event) => void` | Required | Change handler |
-| `configManager` | `ConfigManager` | `undefined` | Custom configuration manager |
-| `disabled` | `boolean` | `false` | Disable the editor |
-| `showHeader` | `boolean` | `true` | Show/hide header |
-| `headerLabel` | `string` | `'Syntax Editor'` | Header label text |
-| `headerLinks` | `HeaderLink[]` | `[]` | Documentation links |
-| `showCopyButton` | `boolean` | `true` | Show copy button |
-| `showPrettifyButton` | `boolean` | `true` | Show prettify button |
-| `copyButtonLabel` | `string` | `'Copy'` | Copy button label |
-| `prettifyButtonLabel` | `string` | `'Prettify'` | Prettify button label |
-| `placeholder` | `string` | `'Enter your query...'` | Placeholder text |
-| `className` | `string` | `undefined` | Custom container class |
-| `style` | `CSSProperties` | `undefined` | Inline styles |
-| `classNames` | `CustomClassNames` | `{}` | Custom class names |
-| `styles` | `CustomStyles` | `{}` | Custom inline styles |
-| `onCopy` | `(value) => void` | `undefined` | Custom copy handler |
-| `onPrettify` | `(value) => void` | `undefined` | Custom prettify handler |
-| `notificationHandler` | `NotificationHandler` | `undefined` | Custom notifications |
-| `disableStyleInjection` | `boolean` | `false` | Disable CSS injection |
+| Prop                    | Type                  | Default                 | Description                  |
+| ----------------------- | --------------------- | ----------------------- | ---------------------------- |
+| `value`                 | `string`              | Required                | Current editor value         |
+| `onChange`              | `(event) => void`     | Required                | Change handler               |
+| `configManager`         | `ConfigManager`       | `undefined`             | Custom configuration manager |
+| `disabled`              | `boolean`             | `false`                 | Disable the editor           |
+| `showHeader`            | `boolean`             | `true`                  | Show/hide header             |
+| `headerLabel`           | `string`              | `'Syntax Editor'`       | Header label text            |
+| `headerLinks`           | `HeaderLink[]`        | `[]`                    | Documentation links          |
+| `showCopyButton`        | `boolean`             | `true`                  | Show copy button             |
+| `showPrettifyButton`    | `boolean`             | `true`                  | Show prettify button         |
+| `copyButtonLabel`       | `string`              | `'Copy'`                | Copy button label            |
+| `prettifyButtonLabel`   | `string`              | `'Prettify'`            | Prettify button label        |
+| `placeholder`           | `string`              | `'Enter your query...'` | Placeholder text             |
+| `className`             | `string`              | `undefined`             | Custom container class       |
+| `style`                 | `CSSProperties`       | `undefined`             | Inline styles                |
+| `classNames`            | `CustomClassNames`    | `{}`                    | Custom class names           |
+| `styles`                | `CustomStyles`        | `{}`                    | Custom inline styles         |
+| `onCopy`                | `(value) => void`     | `undefined`             | Custom copy handler          |
+| `onPrettify`            | `(value) => void`     | `undefined`             | Custom prettify handler      |
+| `notificationHandler`   | `NotificationHandler` | `undefined`             | Custom notifications         |
+| `disableStyleInjection` | `boolean`             | `false`                 | Disable CSS injection        |
 
 ### Core Classes
 
 #### ConfigManager
 
 ```tsx
-import { ConfigManager } from 'react-custom-syntax';
+import { ConfigManager } from 'react-custom-syntax'
 
-const config = new ConfigManager(syntaxConfig);
+const config = new ConfigManager(syntaxConfig)
 
 // Get keywords by type
-config.getOperatorKeywords();
-config.getFunctionKeywords();
-config.getCustomTokenKeywords();
+config.getOperatorKeywords()
+config.getFunctionKeywords()
+config.getCustomTokenKeywords()
 
 // Token information
-config.getTokenInfo('and');
-config.hasKeyword('contains');
+config.getTokenInfo('and')
+config.hasKeyword('contains')
 
 // Generate CSS
-const css = config.generateCSS();
+const css = config.generateCSS()
 
 // Load from URL
-const manager = await ConfigManager.fromURL('https://example.com/syntax.json');
+const manager = await ConfigManager.fromURL('https://example.com/syntax.json')
 ```
 
 #### SyntaxHighlighter
 
 ```tsx
-import { SyntaxHighlighter } from 'react-custom-syntax';
+import { SyntaxHighlighter } from 'react-custom-syntax'
 
-const highlighter = new SyntaxHighlighter(configManager);
-const highlighted = highlighter.highlight('status eq true');
+const highlighter = new SyntaxHighlighter(configManager)
+const highlighted = highlighter.highlight('status eq true')
 ```
 
 #### Prettifier
 
 ```tsx
-import { Prettifier } from 'react-custom-syntax';
+import { Prettifier } from 'react-custom-syntax'
 
-const prettifier = new Prettifier(configManager);
-const formatted = prettifier.prettify('status eq true and priority gt 5');
+const prettifier = new Prettifier(configManager)
+const formatted = prettifier.prettify('status eq true and priority gt 5')
 
 // Configure max line length
-prettifier.setMaxLineLength(100);
+prettifier.setMaxLineLength(100)
 ```
 
 #### IdentifierExtractor
 
 ```tsx
-import { IdentifierExtractor } from 'react-custom-syntax';
+import { IdentifierExtractor } from 'react-custom-syntax'
 
-const extractor = new IdentifierExtractor(configManager);
-const identifiers = extractor.extract('status eq true and priority gt 5');
+const extractor = new IdentifierExtractor(configManager)
+const identifiers = extractor.extract('status eq true and priority gt 5')
 // Returns: ['status', 'priority']
 ```
 
@@ -211,28 +218,28 @@ const identifiers = extractor.extract('status eq true and priority gt 5');
 Extend functionality with custom plugins using lifecycle hooks:
 
 ```tsx
-import type { Plugin } from 'react-custom-syntax';
+import type { Plugin } from 'react-custom-syntax'
 
 // Example: Logging plugin
 const loggingPlugin: Plugin = {
   name: 'logging',
-  beforeHighlight: (text) => {
-    console.log('Highlighting text:', text);
-    return text;
+  beforeHighlight: text => {
+    console.log('Highlighting text:', text)
+    return text
   },
   afterHighlight: (highlightedHtml, originalText) => {
-    console.log('Highlighted to:', highlightedHtml);
-    return highlightedHtml;
+    console.log('Highlighted to:', highlightedHtml)
+    return highlightedHtml
   },
-  beforePrettify: (text) => {
-    console.log('Prettifying text:', text);
-    return text;
+  beforePrettify: text => {
+    console.log('Prettifying text:', text)
+    return text
   },
   afterPrettify: (prettifiedText, originalText) => {
-    console.log('Prettified to:', prettifiedText);
-    return prettifiedText;
+    console.log('Prettified to:', prettifiedText)
+    return prettifiedText
   }
-};
+}
 ```
 
 See the [Plugins section](#plugins) for more details.
@@ -265,7 +272,7 @@ Override these CSS variables to customize the theme:
   classNames={{
     container: 'my-container',
     header: 'my-header',
-    editor: 'my-editor',
+    editor: 'my-editor'
   }}
 />
 ```
@@ -278,7 +285,7 @@ Override these CSS variables to customize the theme:
   onChange={handleChange}
   styles={{
     container: { borderRadius: '12px' },
-    editor: { fontSize: '16px' },
+    editor: { fontSize: '16px' }
   }}
 />
 ```
@@ -288,19 +295,15 @@ Override these CSS variables to customize the theme:
 ### Custom Notification Handler
 
 ```tsx
-import { toast } from 'react-toastify';
+import { toast } from 'react-toastify'
 
 const notificationHandler = {
-  success: (msg) => toast.success(msg),
-  warning: (msg) => toast.warning(msg),
-  error: (msg) => toast.error(msg),
-};
+  success: msg => toast.success(msg),
+  warning: msg => toast.warning(msg),
+  error: msg => toast.error(msg)
+}
 
-<CustomSyntaxEditor
-  value={value}
-  onChange={handleChange}
-  notificationHandler={notificationHandler}
-/>
+;<CustomSyntaxEditor value={value} onChange={handleChange} notificationHandler={notificationHandler} />
 ```
 
 ### Custom Copy/Prettify Handlers
@@ -309,12 +312,12 @@ const notificationHandler = {
 <CustomSyntaxEditor
   value={value}
   onChange={handleChange}
-  onCopy={(value) => {
-    navigator.clipboard.writeText(value);
-    console.log('Copied:', value);
+  onCopy={value => {
+    navigator.clipboard.writeText(value)
+    console.log('Copied:', value)
   }}
-  onPrettify={(prettified) => {
-    console.log('Prettified:', prettified);
+  onPrettify={prettified => {
+    console.log('Prettified:', prettified)
   }}
 />
 ```
@@ -329,8 +332,8 @@ const notificationHandler = {
     {
       href: 'https://docs.example.com',
       label: 'Documentation',
-      title: 'View documentation',
-    },
+      title: 'View documentation'
+    }
   ]}
 />
 ```
@@ -349,9 +352,7 @@ Two types of matching are supported:
   "matchType": "keyword",
   "caseSensitive": false,
   "addWordBoundaries": true,
-  "tokens": [
-    { "keyword": "and", "type": "LogicalOperator", "description": "AND operator" }
-  ]
+  "tokens": [{ "keyword": "and", "type": "LogicalOperator", "description": "AND operator" }]
 }
 ```
 
@@ -406,50 +407,40 @@ The showcase includes:
 ### OData Query Editor
 
 ```tsx
-import { useState } from 'react';
-import { CustomSyntaxEditor, ConfigManager, odataConfig } from 'react-custom-syntax';
+import { useState } from 'react'
+import { CustomSyntaxEditor, ConfigManager, odataConfig } from 'react-custom-syntax'
 
 function ODataEditor() {
-  const [query, setQuery] = useState("status eq 'Active' and priority gt 5");
-  const configManager = new ConfigManager(odataConfig);
+  const [query, setQuery] = useState("status eq 'Active' and priority gt 5")
+  const configManager = new ConfigManager(odataConfig)
 
   return (
     <CustomSyntaxEditor
       value={query}
-      onChange={(e) => setQuery(e.target.value)}
+      onChange={e => setQuery(e.target.value)}
       configManager={configManager}
       headerLabel="OData Query Editor"
       headerLinks={[
         {
           href: 'https://azuresearch.github.io/odata-syntax-diagram',
-          label: 'OData Syntax Reference',
-        },
+          label: 'OData Syntax Reference'
+        }
       ]}
     />
-  );
+  )
 }
 ```
 
 ### Read-Only Display
 
 ```tsx
-<CustomSyntaxEditor
-  value={savedQuery}
-  onChange={() => {}}
-  disabled={true}
-  configManager={configManager}
-/>
+<CustomSyntaxEditor value={savedQuery} onChange={() => {}} disabled={true} configManager={configManager} />
 ```
 
 ### Minimal Editor (No Header)
 
 ```tsx
-<CustomSyntaxEditor
-  value={value}
-  onChange={handleChange}
-  showHeader={false}
-  configManager={configManager}
-/>
+<CustomSyntaxEditor value={value} onChange={handleChange} showHeader={false} configManager={configManager} />
 ```
 
 ## Browser Support
@@ -461,16 +452,17 @@ function ODataEditor() {
 
 ## Next.js Compatibility
 
-This library uses client-side features (contentEditable, clipboard API). All components are marked with `'use client'` directive and will work seamlessly in Next.js App Router.
+This library uses client-side features (contentEditable, clipboard API). All components are marked with `'use client'`
+directive and will work seamlessly in Next.js App Router.
 
 ```tsx
 // In your Next.js app router component
-'use client';
+'use client'
 
-import { CustomSyntaxEditor, ConfigManager, odataConfig } from 'react-custom-syntax';
+import { CustomSyntaxEditor, ConfigManager, odataConfig } from 'react-custom-syntax'
 
 export default function Page() {
-  const configManager = new ConfigManager(odataConfig);
+  const configManager = new ConfigManager(odataConfig)
   // ... rest of your code
 }
 ```
@@ -486,6 +478,7 @@ npm run test:coverage # Run tests with coverage report
 ```
 
 Coverage reports are generated in:
+
 - Terminal: Text summary
 - `coverage/index.html`: Interactive HTML report (open in browser)
 - `coverage/coverage-final.json`: JSON data
@@ -497,4 +490,3 @@ MIT © Mohamed Elbaz
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
-
