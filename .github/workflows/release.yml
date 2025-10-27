@@ -1,0 +1,77 @@
+name: NPM Package Release & Publish
+
+on:
+  push:
+    branches:
+      - master
+      - staging
+
+  workflow_dispatch:
+
+concurrency:
+  group: publish-${{github.ref_name}}-on-npm
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+jobs:
+  testing:
+    name: lint and test the package
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Set up Node.js version
+        uses: actions/setup-node@v6
+        with:
+          node-version: lts/Jod
+          cache: npm
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Check package integrty
+        run: npm audit signatures
+
+      - name: Lint the code
+        run: npm run lint
+
+      - name: Test the code
+        run: npm run test
+
+  release:
+    name: Publish and Release
+    needs: testing
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Set up Node.js version
+        uses: actions/setup-node@v6
+        with:
+          node-version: lts/Jod
+          cache: npm
+
+      - name: Build the package
+        id: packageBuild
+        run: npm build
+
+      - name: Zip artifact for deployment
+        run: cd ./dist/ && zip ../react-custom-syntax-dist.zip . -r
+
+      - name: Create Release And Publish
+        if: always() && contains( steps.packageBuild.outcome , 'success' )
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npx semantic-release
+
+      - name: Upload artifact
+        if: always() && contains( steps.packageBuild.outcome , 'success' )
+        uses: actions/upload-artifact@v4
+        with:
+          name: npm-package-${{github.ref_name}}-${{github.sha}}
+          path: react-custom-syntax-dist.zip
