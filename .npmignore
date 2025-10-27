@@ -34,5 +34,9 @@ examples/
 docs/
 *.md
 !README.md
-!CHANGELOG.md
 
+.eslintrc.json
+.prettierignore
+.prettierrc.json
+.commitlintrc.cjs
+.releaserc.cjs
