@@ -82,8 +82,8 @@ describe('IdentifierExtractor', () => {
 
     it('should handle empty input', () => {
       expect(extractor.extract('')).toEqual([]);
-      expect(extractor.extract(null as any)).toEqual([]);
-      expect(extractor.extract(undefined as any)).toEqual([]);
+      expect(extractor.extract(null as unknown as string)).toEqual([]);
+      expect(extractor.extract(undefined as unknown as string)).toEqual([]);
     });
 
     it('should handle identifiers with underscores', () => {

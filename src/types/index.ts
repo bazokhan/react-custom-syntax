@@ -3,6 +3,9 @@
  */
 
 import { CSSProperties, ReactNode } from 'react';
+import type { ConfigManager } from '../core/ConfigManager';
+import type { SyntaxHighlighter } from '../core/SyntaxHighlighter';
+import type { Prettifier } from '../core/Prettifier';
 
 /**
  * Token definition for keywords
@@ -46,7 +49,7 @@ export interface SyntaxConfigMetadata {
   maintainer?: string;
   extensible?: boolean;
   notes?: string[];
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 /**
@@ -72,14 +75,14 @@ export interface ConfigManagerOptions {
  * Syntax highlighter options
  */
 export interface HighlighterOptions {
-  configManager: any; // Will be ConfigManager instance
+  configManager: ConfigManager;
 }
 
 /**
  * Prettifier options
  */
 export interface PrettifierOptions {
-  configManager: any; // Will be ConfigManager instance
+  configManager: ConfigManager;
   maxLineLength?: number;
 }
 
@@ -87,7 +90,7 @@ export interface PrettifierOptions {
  * Identifier extractor options
  */
 export interface IdentifierExtractorOptions {
-  configManager: any; // Will be ConfigManager instance
+  configManager: ConfigManager;
 }
 
 /**
@@ -137,13 +140,13 @@ export interface CustomSyntaxEditorProps {
   disabled?: boolean;
   
   /** Custom configuration manager instance */
-  configManager?: any;
+  configManager?: ConfigManager;
   
   /** Custom prettifier instance */
-  prettifierInstance?: any;
+  prettifierInstance?: Prettifier;
   
   /** Custom syntax highlighter instance */
-  highlighterInstance?: any;
+  highlighterInstance?: SyntaxHighlighter;
   
   /** Show header section */
   showHeader?: boolean;
@@ -208,8 +211,8 @@ export interface CodeEditorProps {
   value: string;
   onChange: (newValue: string) => void;
   onPrettify: () => void;
-  configManager: any;
-  highlighter: any;
+  configManager: ConfigManager;
+  highlighter: SyntaxHighlighter;
   showHeader?: boolean;
   headerLabel?: string;
   headerLinks?: HeaderLink[];
@@ -252,7 +255,7 @@ export interface EditorHeaderProps {
 export interface EditorContentProps {
   value: string;
   onChange: (newValue: string) => void;
-  highlighter: any;
+  highlighter: SyntaxHighlighter;
   placeholder?: string;
   className?: string;
   style?: CSSProperties;

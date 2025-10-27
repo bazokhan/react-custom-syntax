@@ -14,7 +14,7 @@ describe('SyntaxHighlighter with Rule-Based Architecture', () => {
 
   describe('Constructor', () => {
     it('should require a config manager', () => {
-      expect(() => new SyntaxHighlighter(null as any)).toThrow(
+      expect(() => new SyntaxHighlighter(null as unknown as ConfigManager)).toThrow(
         'SyntaxHighlighter requires a configManager instance'
       );
     });
@@ -183,7 +183,7 @@ describe('SyntaxHighlighter with Rule-Based Architecture', () => {
     });
 
     it('should handle null input', () => {
-      const result = highlighter.highlight(null as any);
+      const result = highlighter.highlight(null as unknown as string);
       expect(result).toBe('');
     });
 

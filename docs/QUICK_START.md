@@ -16,7 +16,7 @@ This creates the `dist/` folder with the built library.
 ### 2. Navigate to an Example
 
 ```bash
-cd examples/basic-odata-editor
+cd docs/basic-odata-editor
 ```
 
 ### 3. Install Dependencies
@@ -75,7 +75,7 @@ Make sure you've built the main package first:
 ```bash
 cd ../..  # Go to repository root
 npm run build
-cd examples/basic-odata-editor
+cd docs/basic-odata-editor
 npm install
 ```
 
@@ -103,13 +103,13 @@ Each example is independent. You can run multiple examples in different terminal
 
 **Terminal 1:**
 ```bash
-cd examples/basic-odata-editor
+cd docs/basic-odata-editor
 npm run dev
 ```
 
 **Terminal 2:**
 ```bash
-cd examples/minimal-editor  # When we create this
+cd docs/minimal-editor  # When we create this
 npm run dev
 ```
 
@@ -117,7 +117,7 @@ npm run dev
 
 1. Copy an existing example:
 ```bash
-cd examples
+cd docs
 cp -r basic-odata-editor my-new-example
 cd my-new-example
 ```

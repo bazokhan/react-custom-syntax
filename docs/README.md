@@ -59,7 +59,7 @@ This will start a single Vite dev server at `http://localhost:5173` with all exa
 ## Project Structure
 
 ```
-examples/
+docs/
 ├── package.json              # Main site configuration
 ├── vite.config.ts            # Vite config for the showcase
 ├── index.html               # HTML entry point
@@ -81,7 +81,7 @@ examples/
 
 ## Adding a New Example
 
-1. Create a new folder in `examples/`
+1. Create a new folder in `docs/`
 2. Create `component.tsx` with your example component
 3. Create `README.md` with documentation
 4. Update `src/App.tsx` to include your example in the `examples` array

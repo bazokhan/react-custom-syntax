@@ -261,7 +261,7 @@ export class SyntaxHighlighter {
    * Log the highlighted text (for debugging)
    */
   log(): this {
-    console.log(this.highlighted);
+    console.warn(this.highlighted);
     return this;
   }
 }

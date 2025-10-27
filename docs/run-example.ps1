@@ -17,7 +17,7 @@ npm run build
 
 Write-Host ""
 Write-Host "📂 Navigating to example: $ExampleName" -ForegroundColor Green
-Set-Location "examples\$ExampleName"
+Set-Location "docs\$ExampleName"
 
 Write-Host ""
 Write-Host "📥 Installing dependencies..." -ForegroundColor Yellow

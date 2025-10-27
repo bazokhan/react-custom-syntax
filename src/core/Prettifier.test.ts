@@ -88,7 +88,7 @@ describe('Prettifier', () => {
     });
 
     it('should handle null input', () => {
-      const result = prettifier.prettify(null as any);
+      const result = prettifier.prettify(null as unknown as string);
       expect(result).toBe('');
     });
 

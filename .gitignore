@@ -10,6 +10,7 @@ coverage/
 # Build outputs
 dist
 examples/*/node_modules/
+docs/*/node_modules/
 build/
 *.tsbuildinfo
 
