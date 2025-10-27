@@ -22,15 +22,8 @@ module.exports = {
         'ci', // CI/CD changes
         'revert', // Reverting a previous commit
         'perf', // Performance improvements
-        'build', // Build system changes
-        // Support explicit breaking-change type in header (some projects use this)
-        'breaking',
-        'BREAKING CHANGE'
+        'build' // Build system changes
       ]
-    ],
-    // Allow BREAKING CHANGE in footer without requiring a leading blank line
-    // and relax type-case so headers like "BREAKING CHANGE: ..." are accepted.
-    'footer-leading-blank': [0],
-    'type-case': [0]
+    ]
   }
 }
