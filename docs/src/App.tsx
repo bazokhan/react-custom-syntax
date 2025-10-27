@@ -62,6 +62,7 @@ const examples: NavItem[] = [
 
 function App() {
   const [selectedId, setSelectedId] = useState(examples[1].id);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const selected = examples.find((ex) => ex.id === selectedId);
   const Component = selected?.component || BasicODataEditor;
@@ -73,17 +74,37 @@ function App() {
           background: '#2d2d2d',
           borderBottom: '1px solid #404040',
           padding: '1rem 2rem',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
         }}
       >
-        <h1 style={{ margin: 0, fontSize: '1.5rem', color: '#4ec9b0' }}>
-          react-custom-syntax Examples
-        </h1>
-        <p style={{ margin: '0.5rem 0 0 0', color: '#858585', fontSize: '0.9rem' }}>
-          Interactive examples demonstrating various use cases
-        </p>
+        <div>
+          <h1 style={{ margin: 0, fontSize: '1.5rem', color: '#4ec9b0' }}>
+            react-custom-syntax Examples
+          </h1>
+          <p style={{ margin: '0.5rem 0 0 0', color: '#858585', fontSize: '0.9rem' }}>
+            Interactive examples demonstrating various use cases
+          </p>
+        </div>
+        <button
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="mobile-menu-button"
+          style={{
+            background: '#37373d',
+            border: '1px solid #404040',
+            borderRadius: '4px',
+            color: '#d4d4d4',
+            padding: '0.5rem 1rem',
+            cursor: 'pointer',
+            fontSize: '1.2rem',
+          }}
+        >
+          {isMenuOpen ? '✕' : '☰'}
+        </button>
       </header>
 
-      <div style={{ display: 'flex', minHeight: 'calc(100vh - 100px)' }}>
+      <div style={{ display: 'flex', minHeight: 'calc(100vh - 100px)' }} className="container">
         {/* Sidebar Navigation */}
         <nav
           style={{
@@ -93,6 +114,7 @@ function App() {
             padding: '1rem',
             overflowY: 'auto',
           }}
+          className={`sidebar ${isMenuOpen ? 'open' : ''}`}
         >
           {['Examples', 'Documentation', 'Legal'].map((section) => {
             const sectionItems = examples.filter((ex) => ex.section === section);
@@ -105,7 +127,10 @@ function App() {
                   {sectionItems.map((item) => (
                     <button
                       key={item.id}
-                      onClick={() => setSelectedId(item.id)}
+                      onClick={() => {
+                        setSelectedId(item.id);
+                        setIsMenuOpen(false);
+                      }}
                       style={{
                         textAlign: 'left',
                         padding: '0.75rem',

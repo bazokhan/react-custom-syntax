@@ -17,3 +17,71 @@ code {
   font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
 }
 
+/* Responsive styles for mobile devices */
+@media (max-width: 768px) {
+  /* Make sidebar hidden by default and toggleable */
+  .sidebar {
+    position: fixed;
+    left: -100%;
+    top: 0;
+    height: 100%;
+    z-index: 1000;
+    transition: left 0.3s ease;
+  }
+  
+  .sidebar.open {
+    left: 0;
+  }
+
+  /* Mobile menu button */
+  .mobile-menu-button {
+    display: block !important;
+  }
+
+  /* Stack layout vertically on mobile */
+  .container {
+    flex-direction: column !important;
+  }
+
+  /* Full width sidebar on mobile */
+  nav {
+    width: 100% !important;
+    border-right: none !important;
+    border-bottom: 1px solid #404040 !important;
+  }
+
+  /* Responsive text sizes */
+  header h1 {
+    font-size: 1.2rem !important;
+  }
+
+  main {
+    padding: 1rem !important;
+  }
+
+  main h2 {
+    font-size: 1.25rem !important;
+  }
+
+  main p {
+    font-size: 0.9rem !important;
+  }
+
+  footer {
+    padding: 1rem !important;
+    font-size: 0.85rem !important;
+  }
+}
+
+/* Desktop: hide mobile menu button */
+.mobile-menu-button {
+  display: none;
+}
+
+/* Desktop: show sidebar always */
+@media (min-width: 769px) {
+  .sidebar {
+    position: static !important;
+  }
+}
+

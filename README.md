@@ -16,6 +16,8 @@ A lightweight, customizable React syntax editor with rule-based highlighting, pr
 [![Release Code Quality](https://github.com/bazokhan/react-custom-syntax/actions/workflows/release.yml/badge.svg)](https://github.com/bazokhan/react-custom-syntax/actions/workflows/release.yml)
 [![Beta Code Quality](https://github.com/bazokhan/react-custom-syntax/actions/workflows/release.yml/badge.svg?branch=staging)](https://github.com/bazokhan/react-custom-syntax/actions/workflows/release.yml)
 
+![OData Query Editor](screenshot.jpg)
+
 A lightweight, customizable React syntax editor with rule-based highlighting, prettification, and plugin support. Define
 any custom language syntax using JSON configuration.
 
